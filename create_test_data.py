@@ -15,7 +15,7 @@ def create_test_ans(cardset):
     return res
 
 def create_test_ans_sets(cardsets):
-    res = np.enpty((0,52),float)
+    res = np.empty((0,52),float)
     for i in cardsets:
         res = np.append(res, create_test_ans(i), axis=0)
 
