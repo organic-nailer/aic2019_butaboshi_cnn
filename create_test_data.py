@@ -14,6 +14,11 @@ def create_test_ans(cardset):
       res[(numsets[num] - 1) + marksets[mark] * 13] = 1 / len(cardset)
     return res
 
+def create_test_ans_sets(cardsets):
+    res = np.enpty((0,52),float)
+    for i in cardsets:
+        res = np.append(res, create_test_ans(i), axis=0)
+
 print(create_test_ans({'7c', 'Ks', 'Jc', '6c', '10c', '4s', '9s', '5d', 'Jh', '3d', '4c', '2c', '10d', '10h', '8c', 'Ad', '9h', 'Ac'}))
 
 
