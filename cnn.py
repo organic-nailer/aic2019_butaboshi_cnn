@@ -11,14 +11,21 @@ def create_CNN_model():
     inputs = Input(shape=(720, 7200, 1))
     
     #一層目
-    x = Conv2D(32, kernel_size=(3, 3), strides=(1,1))(inputs)
+    x = Conv2D(4, kernel_size=(10, 10), strides=(2,2))(inputs)
     x = BatchNormalization()(x)
     x = Activation("relu")(x)
     
     x = MaxPooling2D()(x)
     
     #二層目
-    x = Conv2D(64, kernel_size=(3, 3), strides=(1,1))(x)
+    x = Conv2D(8, kernel_size=(10, 10), strides=(2,2))(x)
+    x = BatchNormalization()(x)
+    x = Activation("relu")(x)
+    
+    x = MaxPooling2D()(x)
+    
+    #二層目
+    x = Conv2D(16, kernel_size=(10, 10), strides=(2,2))(x)
     x = BatchNormalization()(x)
     x = Activation("relu")(x)
     
@@ -39,7 +46,3 @@ def create_CNN_model():
     model.compile(loss='categorical_crossentropy', optimizer=opt, metrics=['categorical_accuracy'])
     
     return model
-
-
-
-print("Hello,world!")

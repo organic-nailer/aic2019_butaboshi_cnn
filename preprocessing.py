@@ -18,7 +18,7 @@ def preprocessing(input_data):
            dst = cv2.cvtColor(dst,cv2.COLOR_RGBA2GRAY)
            _, dst = cv2.threshold(dst, 230, 255, cv2.THRESH_BINARY)
 
-           ＿, dst_contours,＿ = cv2.findContours(dst, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
+           _, dst_contours,__ = cv2.findContours(dst, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
            dst_contours.sort(key=cv2.contourArea, reverse=True)
 
 
@@ -62,5 +62,5 @@ for i in range(20):
    input_data = np.load("intput_data_{0}00.npy".format(i),allow_pickle=True)
    preprocessing(input_data)
 """
-input_data = np.load("intput_data_100.npy",allow_pickle=True)
-preprocessing(input_data)
+#input_data = np.load("intput_data_100.npy",allow_pickle=True)
+#preprocessing(input_data)
