@@ -8,7 +8,9 @@ class CardsDataset(VOCBboxDataset):
   def _get_annotations(self,i):
     id_ = self.ids[i]
 
-    _,name,box = np.load("data/created/cards_{:0=8}.npy".format(id_),allow_pickle=True)
+    loaded = np.load("data/created/cards_{:0=8}.npz".format(id_),allow_pickle=True)
+    name = loaded["arr_1"]
+    box = loaded["arr_2"]
 
     bbox = np.stack(box).astype(np.float32)
 
@@ -25,7 +27,8 @@ class CardsDataset(VOCBboxDataset):
   def _get_image(self,i):
     id_ = self.ids[i]
 
-    img,_,__ = np.load("data/created/cards_{:0=8}.npy".format(id_),allow_pickle=True)
+    loaded = np.load("data/created/cards_{:0=8}.npz".format(id_),allow_pickle=True)
+    img = loaded["arr_0"]
 
     return img
 

@@ -64,5 +64,14 @@ for i in range(3):
 plt.imshow(coled)
 plt.show()
 """
-for i in range(1,10):
-    ctd.create(i)
+
+loaded = np.load("data/created/cards_00000000.npz",allow_pickle=True)
+
+img = loaded["arr_0"]
+name = loaded["arr_1"]
+locate = loaded["arr_2"]
+
+print("img:",img.shape)
+print("name:",name.shape)
+print("locate:",locate.shape)
+print(locate)
