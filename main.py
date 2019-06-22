@@ -3,11 +3,10 @@ from preprocessing import preprocessing
 from create_test_data import create_test_ans_sets
 from cnn import create_CNN_model
 """
-import Gizou as gz
 import numpy as np
 from matplotlib import  pyplot as plt
 import cv2
-import CREATE_TEST_DATASET as ctd
+
 """
 input_ans,_ = np.load("data/ans_recog_score_10_100.npy",allow_pickle=True)
 
@@ -65,5 +64,5 @@ for i in range(3):
 plt.imshow(coled)
 plt.show()
 """
-
-ctd.create(0)
+for i in range(1,10):
+    ctd.create(i)
