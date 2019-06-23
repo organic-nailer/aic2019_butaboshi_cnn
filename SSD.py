@@ -28,9 +28,10 @@ from chainercv.links.model.ssd import resize_with_random_interpolation
 #chainer.cuda.set_max_workspace_size(1024 * 1024 * 1024)
 chainer.config.autotune = True
 
-train_dataset = ssdd.CardsDataset()
-valid_dataset = ssdd.CardsDataset()
-test_dataset = ssdd.CardsDataset()
+#データセットを分類
+train_dataset = ssdd.CardsDataset("data/created/",(0,30))
+valid_dataset = ssdd.CardsDataset("data/created/",(30,40))
+test_dataset = ssdd.CardsDataset("data/created/",(40,50))
 
 class MultiboxTrainChain(chainer.Chain):
     def __init__(self, model, alpha=1, k=3):

@@ -6,6 +6,7 @@ from cnn import create_CNN_model
 import numpy as np
 from matplotlib import  pyplot as plt
 import cv2
+from chainercv.visualizations import vis_bbox
 
 """
 input_ans,_ = np.load("data/ans_recog_score_10_100.npy",allow_pickle=True)
@@ -65,13 +66,19 @@ plt.imshow(coled)
 plt.show()
 """
 
-loaded = np.load("data/created/cards_00000000.npz",allow_pickle=True)
+loaded = np.load("data/created/cards_00009900.npz",allow_pickle=True)
 
 img = loaded["arr_0"]
 name = loaded["arr_1"]
 locate = loaded["arr_2"]
 
-print("img:",img.shape)
-print("name:",name.shape)
-print("locate:",locate.shape)
+cimg = np.zeros((3,300,300))
+cimg[0] = img[0]
+cimg[1] = img[0]
+cimg[2] = img[0]
 print(locate)
+print(cimg.shape)
+
+vis_bbox(cimg,locate)
+
+plt.show()
