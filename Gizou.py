@@ -92,7 +92,11 @@ def maskShadow(img):
 def getChaosCard():
     card,tag = getRandomCard()
     scaled = imageScaleRandom(card)
-    shadowed = maskShadow(scaled)
+    shadowed = scaled
+    try:
+        shadowed = maskShadow(scaled)
+    except:
+        print("error")
     rotated = imageRotate(shadowed,np.random.randint(0,360))
     return rotated,tag
 
@@ -117,6 +121,6 @@ def collageRandom():
             locates.append(s)
             bg = bg_res.copy()
 
-    return bg,names,locates
+    return bg,np.array(names),np.array(locates)
     
 
