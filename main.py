@@ -65,7 +65,6 @@ for i in range(3):
 plt.imshow(coled)
 plt.show()
 """
-<<<<<<< HEAD
 """
 for i in range(1,10):
     ctd.create(i)
@@ -89,7 +88,6 @@ plt.imshow(cimg[:,:,0])
 plt.gray()
 plt.show()
 """
-=======
 
 loaded = np.load("data/created/cards_00000000.npz",allow_pickle=True)
 
@@ -101,4 +99,3 @@ print("img:",img.shape)
 print("name:",name.shape)
 print("locate:",locate.shape)
 print(locate)
->>>>>>> 66e0a6754a0401f2868f90dc8f15d2a2b62a39b3
