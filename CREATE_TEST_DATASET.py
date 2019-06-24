@@ -9,7 +9,7 @@ def saveDataset(index,img,names,boxes:"[[left,top,right,bottom],[]]"):
     cimg = gimg.transpose((2,0,1))
     cboxes = swapbox(boxes)
     #pack = (cimg,names,boxes)
-    np.savez("data/created/cards_{:0=8}.npz".format(index),cimg,names,boxes)
+    np.savez("data/created/cards_{:0=8}.npz".format(index),cimg,names,cboxes)
 
 def create(index):
     img,name,box = gz.collageRandom()

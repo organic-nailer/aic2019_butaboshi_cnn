@@ -6,13 +6,10 @@ from cnn import create_CNN_model
 import numpy as np
 from matplotlib import  pyplot as plt
 import cv2
-<<<<<<< HEAD
 from chainercv.visualizations import vis_bbox
 
-=======
 import Gizou as gz
 from CREATE_TEST_DATASET import create
->>>>>>> 20889ad9b5fd7f096e6b8c6465a5af6f1cbca6d8
 """
 input_ans,_ = np.load("data/ans_recog_score_10_100.npy",allow_pickle=True)
 
@@ -70,18 +67,13 @@ for i in range(3):
 plt.imshow(coled)
 plt.show()
 """
-"""
-for i in range(1,10):
-    ctd.create(i)
-"""
 
-for i in range(500,10000):
+for i in range(50,1500):
     create(i)
-    if(i%10 == 0):
-        print("created:",i)
+
 
 """
-loaded = np.load("data/created/cards_00000050.npz")
+loaded = np.load("data/created/cards_00009900.npz")
 print(loaded.files)
 img = loaded["arr_0"]
 
@@ -92,9 +84,11 @@ cimg = img.transpose((1,2,0))
 plt.imshow(cimg[:,:,0])
 plt.gray()
 plt.show()
-"""
 
-loaded = np.load("data/created/cards_00009900.npz",allow_pickle=True)
+cv2.imwrite("hoge.jpg",cimg)
+"""
+"""
+loaded = np.load("data/created/cards_00000000.npz",allow_pickle=True)
 
 img = loaded["arr_0"]
 name = loaded["arr_1"]
@@ -110,7 +104,9 @@ print(cimg.shape)
 vis_bbox(cimg,locate)
 
 plt.show()
-print("img:",img.shape)
-print("name:",name.shape)
-print("locate:",locate.shape)
-print(locate)
+"""
+"""
+from SSD import do
+
+do()
+"""

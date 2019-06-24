@@ -21,9 +21,15 @@ class CardsDataset(chainer.dataset.DatasetMixin):
         id_ = self.ids[i]
         loaded = np.load("data/created/cards_{:0=8}.npz".format(id_),allow_pickle=True)
         img = loaded["arr_0"]
-        label = loaded["arr_1"]
+        cimg = np.zeros((3,300,300))
+        cimg[0] = img[0]
+        cimg[1] = img[0]
+        cimg[2] = img[0]
+        label = []
+        for i in loaded["arr_1"]:
+          label.append(self.label_names.index(i))
         bbox = loaded["arr_2"]
 
         bbox = np.array(bbox, dtype=np.float32)
         label = np.array(label, dtype=np.int32)
-        return img, bbox, label
+        return cimg, bbox, label
