@@ -1,0 +1,2 @@
+# aic2019_butaboshi_cnn
+第1回AI画像認識コンテストの遺物です。提出できませんでした。Chainerバンザイ
